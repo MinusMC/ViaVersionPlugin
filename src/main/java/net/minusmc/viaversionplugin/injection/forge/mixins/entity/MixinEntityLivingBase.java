@@ -5,7 +5,7 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.entity;
 
-import de.florianmichael.viamcp.ViaMCP;
+import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minusmc.viaversionplugin.injection.forge.mixins.entity.MixinEntity;
@@ -18,7 +18,7 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
 
     @ModifyConstant(method = "onLivingUpdate", constant = @Constant(doubleValue = 0.005D))
     private double ViaVersion_MovementThreshold(double constant) {
-        if (ViaLoadingBase.getInstance().getTargetVersion().getVersion() >= 107)
+        if (ViaLoadingBase.getInstance().getTargetVersion().isNewerThanOrEqualTo(ProtocolVersion.v1_9))
             return 0.003D;
         return 0.005D;
     }

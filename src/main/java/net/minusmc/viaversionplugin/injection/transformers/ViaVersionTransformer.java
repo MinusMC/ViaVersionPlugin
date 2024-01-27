@@ -1,6 +1,6 @@
 package net.minusmc.viaversionplugin.injection.transformers;
 
-import net.minusmc.minusbounce.utils.ASMUtils;
+import net.minusmc.viaversionplugin.utils.ASMUtils;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;

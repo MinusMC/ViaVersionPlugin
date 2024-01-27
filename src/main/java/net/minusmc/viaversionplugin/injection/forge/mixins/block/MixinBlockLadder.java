@@ -5,20 +5,20 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.block;
 
-import de.florianmichael.viamcp.ViaMCP;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
+import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import net.minecraft.block.BlockLadder;
 import net.minusmc.viaversionplugin.injection.forge.mixins.block.MixinBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(BlockLadder.class)
+@Mixin(value = BlockLadder.class, priority = 1001)
 public abstract class MixinBlockLadder extends MixinBlock {
 
     @ModifyConstant(method = "setBlockBoundsBasedOnState", constant = @Constant(floatValue = 0.125F))
     private float ViaVersion_LadderBB(float constant) {
-        if (ViaLoadingBase.getInstance().getTargetVersion().getVersion() >= 107)
+        if (ViaLoadingBase.getInstance().getTargetVersion().isNewerThanOrEqualTo(ProtocolVersion.v1_9))
             return 0.1875F;
         return 0.125F;
     }
