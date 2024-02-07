@@ -20,8 +20,6 @@ import java.util.ArrayList;
 public class MixinGuiMultiplayer extends GuiScreen {
     @Inject(method = "createButtons", at = @At("HEAD"))
     public void createButtons(CallbackInfo ci) {
-        // if client is LiquidBounce, replace this
-        // buttonList.add(new AsyncVersionSlider(-1, this.width - 213, 8, 98, 20));
-        buttonList.add(new AsyncVersionSlider(-1, this.width - 115, 8, 98, 20));
+        buttonList.add(new AsyncVersionSlider(-1, 5, 45, 98, 20));
     }
 }
