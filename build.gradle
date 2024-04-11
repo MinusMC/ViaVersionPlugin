@@ -49,7 +49,7 @@ configurations {
 }
 
 dependencies {
-    compile ("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+    compileOnly ("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
         exclude module: "guava"
         exclude module: "commons-io"
         exclude module: "gson"
@@ -59,7 +59,7 @@ dependencies {
     }
 
     annotationProcessor("org.spongepowered:mixin:0.7.11-SNAPSHOT")
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     
     include "com.viaversion:viaversion:${project.viaversion_version}"
     include "com.viaversion:viabackwards:${project.viabackwards_version}"
@@ -68,7 +68,7 @@ dependencies {
 
     include "org.slf4j:slf4j-api:${project.slf4j_version}"
 
-    compile "com.github.MinusMCNetwork:MinusBounce:082af77b18"
+    compileOnly "com.github.MinusMCNetwork:MinusBounce:082af77b18"
 }
 
 processResources {
@@ -88,7 +88,7 @@ processResources {
     rename '(.+_at.cfg)', 'META-INF/$1'
 }
 
-task moveResources {
+tasks.register('moveResources') {
     doLast {
         ant.move file: "${buildDir}/resources/main",
                 todir: "${buildDir}/classes/java"
@@ -115,7 +115,7 @@ mixin {
 
 shadowJar {
     archiveClassifier.set("")
-    archiveName = jar.archiveName
+    archiveBaseName = jar.archiveBaseName
     configurations = [project.configurations.include]
     compileJava.options.encoding = "UTF-8"
 

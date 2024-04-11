@@ -1,4 +1,4 @@
-package me.minusmc.viaversonplugin
+package net.minusmc.viaversionplugin
 
 import net.minusmc.minusbounce.plugin.Plugin
 import net.minusmc.minusbounce.plugin.PluginAPIVersion

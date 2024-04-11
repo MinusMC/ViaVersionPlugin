@@ -40,14 +40,14 @@ public class ViaMCP {
     private AsyncVersionSlider asyncVersionSlider;
 
     public ViaMCP() {
-        ViaLoadingBase.ViaLoadingBaseBuilder.create().runDirectory(new File("ViaMCP")).nativeVersion(NATIVE_VERSION).onProtocolReload(comparableProtocolVersion -> {
+        ViaLoadingBase.ViaLoadingBaseBuilder.create().runDirectory(new File("ViaMCP")).nativeVersion(NATIVE_VERSION).onProtocolReload(protocolVersion -> {
             if (getAsyncVersionSlider() != null) {
-                getAsyncVersionSlider().setVersion(comparableProtocolVersion.getVersion());
+                getAsyncVersionSlider().setVersion(protocolVersion.getVersion());
             }
         }).build();
 
         // Add this line if you implement the transaction fixes into the game code
-        fixTransactions();
+        // fixTransactions();
     }
 
     private void fixTransactions() {

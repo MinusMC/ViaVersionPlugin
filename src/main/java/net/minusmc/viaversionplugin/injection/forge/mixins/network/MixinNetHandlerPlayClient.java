@@ -25,7 +25,7 @@ public class MixinNetHandlerPlayClient {
 
     @Inject(method = "handleConfirmTransaction", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/PacketThreadUtil;checkThreadAndEnqueue(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V", shift = At.Shift.AFTER), cancellable=true)
     private void handleConfirmTransaction(S32PacketConfirmTransaction packetIn, CallbackInfo callbackInfo) {
-        if (ViaLoadingBase.getInstance().getTargetVersion().isNewerThanOrEqualTo(ProtocolVersion.v1_17)) {
+        if (ViaLoadingBase.getInstance().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_17)) {
             this.addToSendQueue(new C0FPacketConfirmTransaction(packetIn.getWindowId(), (short) 0, false));
             callbackInfo.cancel();
         }

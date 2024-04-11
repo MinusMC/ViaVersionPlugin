@@ -27,7 +27,7 @@ public class MixinC0FPacketConfirmTransaction {
 
 	@Overwrite
 	public void writePacketData(PacketBuffer buf) {
-    	if (ViaLoadingBase.getInstance().getTargetVersion().isNewerThanOrEqualTo(ProtocolVersion.v1_17)) {
+    	if (ViaLoadingBase.getInstance().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_17)) {
 	        buf.writeInt(this.windowId);
 	    } else {
 	        buf.writeByte(this.windowId);

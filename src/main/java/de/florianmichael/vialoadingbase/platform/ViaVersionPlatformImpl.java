@@ -21,7 +21,6 @@ package de.florianmichael.vialoadingbase.platform;
 import com.viaversion.viaversion.api.Via;
 import com.viaversion.viaversion.api.ViaAPI;
 import com.viaversion.viaversion.api.command.ViaCommandSender;
-import com.viaversion.viaversion.api.configuration.ConfigurationProvider;
 import com.viaversion.viaversion.api.configuration.ViaVersionConfig;
 import com.viaversion.viaversion.api.connection.UserConnection;
 import com.viaversion.viaversion.api.platform.UnsupportedSoftware;
@@ -40,9 +39,9 @@ import java.util.concurrent.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class ViaVersionPlatformImpl implements ViaPlatform<UUID> {
+public class ViaVersionPlatformImpl implements ViaPlatform<UserConnection> {
 
-    private final ViaAPI<UUID> api = new VLBViaAPIWrapper();
+    private final ViaAPI<UserConnection> api = new VLBViaAPIWrapper();
 
     private final Logger logger;
     private final VLBViaConfig config;
@@ -53,7 +52,7 @@ public class ViaVersionPlatformImpl implements ViaPlatform<UUID> {
     }
 
     public static List<ProtocolVersion> createVersionList() {
-        final List<ProtocolVersion> versions = new ArrayList<>(ProtocolVersion.getProtocols()).stream().filter(protocolVersion -> protocolVersion != ProtocolVersion.unknown && ProtocolVersion.getProtocols().indexOf(protocolVersion) >= 7).collect(Collectors.toList());
+        final List<ProtocolVersion> versions = new ArrayList<>(ProtocolVersion.getProtocols()).stream().filter(version -> version.newerThanOrEqualTo(ProtocolVersion.v1_8)).collect(Collectors.toList());
         Collections.reverse(versions);
         return versions;
     }
@@ -127,7 +126,7 @@ public class ViaVersionPlatformImpl implements ViaPlatform<UUID> {
     }
 
     @Override
-    public ViaAPI<UUID> getApi() {
+    public ViaAPI<UserConnection> getApi() {
         return api;
     }
 
@@ -143,7 +142,7 @@ public class ViaVersionPlatformImpl implements ViaPlatform<UUID> {
 
     @Override
     public String getPlatformName() {
-        return "ViaLoadingBase by FlorianMichael";
+        return "ViaLoadingBase";
     }
 
     @Override

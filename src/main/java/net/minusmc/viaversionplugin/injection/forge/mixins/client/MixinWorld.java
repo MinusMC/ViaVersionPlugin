@@ -14,6 +14,10 @@ import org.spongepowered.asm.mixin.Overwrite;
 @Mixin(World.class)
 public abstract class MixinWorld {
 
+    /**
+     * @author
+     * @reason
+     */
     @Overwrite
     public boolean destroyBlock(BlockPos pos, boolean dropBlock) {
         return FixedSoundEngine.destroyBlock((World) (Object) this, pos, dropBlock);

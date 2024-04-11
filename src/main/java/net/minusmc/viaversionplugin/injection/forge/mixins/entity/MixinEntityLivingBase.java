@@ -9,6 +9,7 @@ import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minusmc.viaversionplugin.injection.forge.mixins.entity.MixinEntity;
+import net.minusmc.viaversionplugin.ui.ViaVersionFixButton;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -18,7 +19,7 @@ public abstract class MixinEntityLivingBase extends MixinEntity {
 
     @ModifyConstant(method = "onLivingUpdate", constant = @Constant(doubleValue = 0.005D))
     private double ViaVersion_MovementThreshold(double constant) {
-        if (ViaLoadingBase.getInstance().getTargetVersion().isNewerThanOrEqualTo(ProtocolVersion.v1_9))
+        if (ViaVersionFixButton.Companion.getState())
             return 0.003D;
         return 0.005D;
     }

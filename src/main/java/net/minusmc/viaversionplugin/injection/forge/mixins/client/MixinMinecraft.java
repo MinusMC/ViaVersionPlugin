@@ -35,8 +35,8 @@ public class MixinMinecraft {
         ViaMCP.create();
     }
 
-    @Redirect(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;swingItem()V"))
-    private void fixAttackOrder_VanillaSwing() {
+    @Redirect(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/EntityPlayerSP;swingItem()V"))
+    private void fixAttackOrder_VanillaSwing(EntityPlayerSP player) {
         AttackOrder.sendConditionalSwing(this.objectMouseOver);
     }
 
