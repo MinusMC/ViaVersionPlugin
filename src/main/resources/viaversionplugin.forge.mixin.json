@@ -9,6 +9,7 @@
     "block.MixinBlockLadder",
     "block.MixinBlockLilyPad",
     "client.MixinMinecraft",
+    "client.MixinWorld",
     "entity.MixinEntity",
     "entity.MixinEntityLivingBase",
     "gui.MixinGuiMultiplayer",

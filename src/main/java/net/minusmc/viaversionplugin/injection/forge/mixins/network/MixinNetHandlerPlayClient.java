@@ -19,7 +19,7 @@ public class MixinNetHandlerPlayClient {
     public void addToSendQueue(Packet p_addToSendQueue_1_) {}
 
 	/**
-     * @author toidicakhia, FlorianMichael
+     * @author FlorianMichael
      * @reason 1.17+ transaction fix
      */
 

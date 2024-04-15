@@ -5,17 +5,14 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.gui;
 
+import de.florianmichael.viamcp.gui.AsyncVersionSlider;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiScreen;
-import de.florianmichael.viamcp.gui.AsyncVersionSlider;
 import net.minusmc.viaversionplugin.ui.ViaVersionFixButton;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
-import java.util.ArrayList;
 
 @Mixin(GuiMultiplayer.class)
 public class MixinGuiMultiplayer extends GuiScreen {

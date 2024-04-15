@@ -3,7 +3,7 @@
  * A free open source mixin-based injection hacked client for Minecraft using Minecraft Forge.
  * https://github.com/MinusMC/MinusBounce
  */
-package net.minusmc.minusbounce.injection.forge.mixins.world;
+package net.minusmc.viaversionplugin.injection.forge.mixins.client;
 
 import de.florianmichael.viamcp.fixes.FixedSoundEngine;
 import net.minecraft.util.BlockPos;

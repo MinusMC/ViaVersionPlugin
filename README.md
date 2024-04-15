@@ -1,5 +1,5 @@
 # ViaVersionPlugin
-This is a plugin for MinusBounce that it helps you play on any version to 1.20.1
+A plugin for MinusBounce (and LiquidBounce Legacy) that it helps you play on any version to 1.20.1
 
 ### Information of MinusBounce
 - Website: https://minusbounce.lol

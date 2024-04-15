@@ -23,8 +23,6 @@ import com.viaversion.viaversion.api.platform.PlatformTask;
 import com.viaversion.viaversion.api.scheduler.Task;
 import com.viaversion.viaversion.api.scheduler.TaskStatus;
 
-import java.util.concurrent.Future;
-
 public class VLBTask implements PlatformTask<Task> {
 
     private final Task object;

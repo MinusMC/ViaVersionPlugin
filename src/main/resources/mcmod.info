@@ -2,13 +2,13 @@
   {
     "modid": "viaversionplugin",
     "name": "ViaVersionPlugin",
-    "description": "",
+    "description": "A plugin for MinusBounce (and LiquidBounce Legacy) that it helps you play on any version to 1.20.1.",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "",
-    "updateUrl": "",
+    "url": "https://minusbounce.lol",
+    "updateUrl": "https://github.com/MinusMC/ViaVersionPlugin",
     "authorList": ["toidicakhia", "MinusMC"],
-    "credits": "",
+    "credits": "ViaMCP by FlorianMichael",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []

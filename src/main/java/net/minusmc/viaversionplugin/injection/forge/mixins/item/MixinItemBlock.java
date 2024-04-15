@@ -11,13 +11,11 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-import java.util.Objects;
-
 @Mixin(ItemBlock.class)
 public class MixinItemBlock extends Item {
     /**
-     * @author
-     * @reason
+     * @author FlorianMichael
+     * @reason Fix item using sound engine
      */
     @Overwrite
     public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {

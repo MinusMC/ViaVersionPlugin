@@ -5,10 +5,7 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.block;
 
-import de.florianmichael.vialoadingbase.ViaLoadingBase;
-import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import net.minecraft.block.BlockLadder;
-import net.minusmc.viaversionplugin.injection.forge.mixins.block.MixinBlock;
 import net.minusmc.viaversionplugin.ui.ViaVersionFixButton;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

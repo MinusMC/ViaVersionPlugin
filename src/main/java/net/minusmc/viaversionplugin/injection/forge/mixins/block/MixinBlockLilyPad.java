@@ -1,7 +1,5 @@
 package net.minusmc.viaversionplugin.injection.forge.mixins.block;
 
-import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.state.IBlockState;
@@ -15,8 +13,8 @@ import org.spongepowered.asm.mixin.Overwrite;
 @Mixin(BlockLilyPad.class)
 public abstract class MixinBlockLilyPad extends BlockBush {
     /**
-     * @author
-     * @reason
+     * @author Aspw?
+     * @reason Fix lilypad
      */
     @Overwrite
     public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {

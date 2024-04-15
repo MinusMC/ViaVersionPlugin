@@ -5,10 +5,7 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.entity;
 
-import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.entity.EntityLivingBase;
-import net.minusmc.viaversionplugin.injection.forge.mixins.entity.MixinEntity;
 import net.minusmc.viaversionplugin.ui.ViaVersionFixButton;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
