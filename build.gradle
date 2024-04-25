@@ -68,7 +68,7 @@ dependencies {
 
     include "org.slf4j:slf4j-api:${project.slf4j_version}"
 
-    compileOnly "com.github.MinusMCNetwork:MinusBounce:082af77b18"
+    compileOnly "com.github.MinusMC:MinusBounce:1194811367"
 }
 
 processResources {

@@ -25,6 +25,9 @@ public class MixinNetworkManager_5 {
     private void onInitChannel(Channel channel, CallbackInfo ci) {
         if (channel instanceof SocketChannel && ViaLoadingBase.getInstance().getTargetVersion().getVersion() != ViaMCP.NATIVE_VERSION) {
             final UserConnection user = new UserConnectionImpl(channel, true);
+
+            ViaVersionPlugin.INSTANCE.setViaUser(user);
+
             new ProtocolPipelineImpl(user);
             
             channel.pipeline().addLast(new MCPVLBPipeline(user));
