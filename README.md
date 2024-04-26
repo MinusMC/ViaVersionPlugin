@@ -1,9 +1,12 @@
 # ViaVersionPlugin
-A plugin for MinusBounce (and LiquidBounce Legacy) that it helps you play on any version to 1.20.1
+A plugin for MinusBounce that it helps you play on any version to 1.20.4
 
 ### Information of MinusBounce
 - Website: https://minusbounce.lol
 - Discord: https://discord.minusbounce.lol
+
+### Why do we develop this?
+ViaForge has some issue that you can't use like some anticheats flagged when you change to >= 1.17, no custom packet.
 
 ### Installation
 - Step 1: Make sure that MinusBounce was installed in mods folder. If it wasn't installed, you can download in [here](https://minusbounce.lol/download)
