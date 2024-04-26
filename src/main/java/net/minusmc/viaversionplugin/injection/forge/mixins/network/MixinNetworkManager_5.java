@@ -5,6 +5,8 @@
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.network;
 
+import net.minusmc.viaversionplugin.ViaVersionPlugin;
+
 import de.florianmichael.viamcp.ViaMCP;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import de.florianmichael.viamcp.MCPVLBPipeline;

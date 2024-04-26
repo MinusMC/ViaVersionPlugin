@@ -11,5 +11,7 @@ object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersi
 
 	override fun registerModules() {
 		MinusBounce.moduleManager.registerModule(SwapOffhandBypass())
+
+		println("Registered.")
 	}
 }
