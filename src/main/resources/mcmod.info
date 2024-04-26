@@ -2,7 +2,7 @@
   {
     "modid": "viaversionplugin",
     "name": "ViaVersionPlugin",
-    "description": "A plugin for MinusBounce (and LiquidBounce Legacy) that it helps you play on any version to 1.20.1.",
+    "description": "A plugin for MinusBounce that it helps you play on any version to 1.20.4.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://minusbounce.lol",

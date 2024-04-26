@@ -4,7 +4,7 @@ import net.minusmc.minusbounce.MinusBounce
 import net.minusmc.minusbounce.plugin.Plugin
 import net.minusmc.minusbounce.plugin.PluginAPIVersion
 import net.minusmc.viaversionplugin.modules.SwapOffhandBypass
-import net.minusmc.viaversionplugin.packets.C1APacketSwapHand
+import net.minusmc.viaversionplugin.packets.*
 
 import net.minecraft.network.Packet
 
@@ -18,11 +18,12 @@ object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersi
 	}
 
 	fun handlePacket(packet: Packet<*>): Boolean {
-		if (packet is C1APacketSwapHand) {
-			PacketHandler.handlePacketSwapHand()
-			return true
+		when (packet) {
+			is C1APacketSwapHand -> PacketHandler.handlePacketSwapHand(packet)
+			is C1BPacketTeleportConfirm -> PacketHandler.handlePacketTeleportComfirm(packet)
+			else -> return false
 		}
 
-		return false
+		return true
 	}
 }
