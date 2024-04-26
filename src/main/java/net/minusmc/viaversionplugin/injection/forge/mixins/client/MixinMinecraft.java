@@ -33,6 +33,8 @@ public class MixinMinecraft {
     @Inject(method = "<init>", at = @At("RETURN"))
     public void startVia(GameConfiguration p_i45547_1_, CallbackInfo ci) {
         ViaMCP.create();
+
+        ViaMCP.INSTANCE.initAsyncSlider(5, 40, 98, 20);
     }
 
     @Redirect(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/EntityPlayerSP;swingItem()V"))

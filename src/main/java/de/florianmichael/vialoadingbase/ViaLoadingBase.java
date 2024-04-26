@@ -80,8 +80,6 @@ public class ViaLoadingBase {
 
         instance = this;
         initPlatform();
-
-        Collections.reverse(PROTOCOLS);
     }
 
     public ProtocolVersion getTargetVersion() {
