@@ -20,7 +20,7 @@ object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersi
 	fun handlePacket(packet: Packet<*>): Boolean {
 		when (packet) {
 			is C1APacketSwapHand -> PacketHandler.handlePacketSwapHand(packet)
-			is C1BPacketTeleportConfirm -> PacketHandler.handlePacketTeleportComfirm(packet)
+			is C1BPacketTeleportConfirm -> PacketHandler.handlePacketTeleportConfirm(packet)
 			else -> return false
 		}
 

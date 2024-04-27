@@ -26,6 +26,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/libs/viaversionplugin-0.3.jar
+            build/libs/viaversionplugin-0.4.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
