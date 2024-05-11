@@ -3,7 +3,7 @@ package net.minusmc.viaversionplugin
 import net.minusmc.minusbounce.MinusBounce
 import net.minusmc.minusbounce.plugin.Plugin
 import net.minusmc.minusbounce.plugin.PluginAPIVersion
-import net.minusmc.viaversionplugin.modules.SwapOffhandBypass
+import net.minusmc.viaversionplugin.modules.*
 import net.minusmc.viaversionplugin.packets.*
 
 import net.minecraft.network.Packet

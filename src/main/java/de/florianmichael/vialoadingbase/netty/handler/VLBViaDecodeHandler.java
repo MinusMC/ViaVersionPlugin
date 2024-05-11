@@ -59,7 +59,7 @@ public class VLBViaDecodeHandler extends MessageToMessageDecoder<ByteBuf> {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         if (PipelineUtil.containsCause(cause, CancelCodecException.class)) return;
 
         if ((PipelineUtil.containsCause(cause, InformativeException.class)
