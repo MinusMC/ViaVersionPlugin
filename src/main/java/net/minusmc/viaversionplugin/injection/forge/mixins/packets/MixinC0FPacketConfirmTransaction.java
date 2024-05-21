@@ -1,7 +1,7 @@
 package net.minusmc.viaversionplugin.injection.forge.mixins.packets;
 
+import net.minusmc.viaversionplugin.utils.ViaVersionUtils;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.network.play.client.C0FPacketConfirmTransaction;
 import net.minecraft.network.PacketBuffer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,7 +27,7 @@ public class MixinC0FPacketConfirmTransaction {
 
 	@Overwrite
 	public void writePacketData(PacketBuffer buf) {
-    	if (ViaLoadingBase.getInstance().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_17)) {
+    	if (ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_17)) {
 	        buf.writeInt(this.windowId);
 	    } else {
 	        buf.writeByte(this.windowId);

@@ -6,7 +6,8 @@
 package net.minusmc.viaversionplugin.injection.forge.mixins.block;
 
 import net.minecraft.block.BlockLadder;
-import net.minusmc.viaversionplugin.ui.ViaVersionFixButton;
+import net.minusmc.viaversionplugin.utils.ViaVersionUtils;
+import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -16,7 +17,7 @@ public abstract class MixinBlockLadder extends MixinBlock {
 
     @ModifyConstant(method = "setBlockBoundsBasedOnState", constant = @Constant(floatValue = 0.125F))
     private float ViaVersion_LadderBB(float constant) {
-        if (ViaVersionFixButton.Companion.getState())
+        if (ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_9))
             return 0.1875F;
         return 0.125F;
     }

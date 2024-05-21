@@ -1,8 +1,8 @@
 package net.minusmc.viaversionplugin.injection.forge.mixins.network;
 
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minusmc.viaversionplugin.utils.ViaVersionUtils;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import net.minecraft.network.play.client.C0FPacketConfirmTransaction;
 import net.minecraft.network.play.server.S32PacketConfirmTransaction;
 import net.minecraft.network.Packet;
@@ -25,7 +25,7 @@ public class MixinNetHandlerPlayClient {
 
     @Inject(method = "handleConfirmTransaction", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/PacketThreadUtil;checkThreadAndEnqueue(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V", shift = At.Shift.AFTER), cancellable=true)
     private void handleConfirmTransaction(S32PacketConfirmTransaction packetIn, CallbackInfo callbackInfo) {
-        if (ViaLoadingBase.getInstance().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_17)) {
+        if (ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_17)) {
             this.addToSendQueue(new C0FPacketConfirmTransaction(packetIn.getWindowId(), (short) 0, false));
             callbackInfo.cancel();
         }

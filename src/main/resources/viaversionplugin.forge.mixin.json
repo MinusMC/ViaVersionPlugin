@@ -12,12 +12,17 @@
     "client.MixinWorld",
     "entity.MixinEntity",
     "entity.MixinEntityLivingBase",
+    "entity.MixinEntityPlayer",
+    "entity.MixinEntityPlayerSP",
     "gui.MixinGuiMultiplayer",
     "item.MixinItemBlock",
     "network.MixinNetHandlerPlayClient",
     "network.MixinNetworkManager",
     "network.MixinNetworkManager_5",
     "packets.MixinC0FPacketConfirmTransaction",
-    "packets.MixinS32PacketConfirmTransaction"
+    "packets.MixinS32PacketConfirmTransaction",
+    "render.MixinModelBiped",
+    "render.MixinLayerArmorBase",
+    "render.MixinEntityRenderer"
   ]
 }

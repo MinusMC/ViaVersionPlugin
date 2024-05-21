@@ -101,9 +101,12 @@ classes.dependsOn(moveResources)
 jar {
     manifest.attributes(
         "MixinConfigs": "viaversionplugin.forge.mixin.json",
-        "tweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+        "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
         "TweakOrder": 0,
-        "FMLCorePluginContainsFMLMod": "net.minusmc.viaversionplugin.injection.forge.ViaVersionTransformerLoader"
+        "FMLCorePlugin": "net.minusmc.viaversionplugin.injection.forge.ViaVersionTransformerLoader",
+        "FMLCorePluginContainsFMLMod": true,
+        "ForceLoadAsMod": true,
+        "FMLAT": "viaversionplugin_at.cfg"
     )
 
     enabled = false
