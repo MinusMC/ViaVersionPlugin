@@ -1,8 +1,8 @@
 package net.minusmc.viaversionplugin
 
-import net.minusmc.viaversionplugin.MinusBounce
-import net.minusmc.viaversionplugin.plugin.Plugin
-import net.minusmc.viaversionplugin.plugin.PluginAPIVersion
+import net.minusmc.minusbounce.MinusBounce
+import net.minusmc.minusbounce.plugin.Plugin
+import net.minusmc.minusbounce.plugin.PluginAPIVersion
 import net.minusmc.viaversionplugin.modules.*
 import net.minusmc.viaversionplugin.packets.*
 

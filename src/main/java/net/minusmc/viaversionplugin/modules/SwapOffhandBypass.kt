@@ -1,9 +1,8 @@
 package net.minusmc.viaversionplugin.modules
 
-import net.minusmc.viaversionplugin.ViaVersionPlugin
-import net.minusmc.viaversionplugin.features.module.Module
-import net.minusmc.viaversionplugin.features.module.ModuleCategory
-import net.minusmc.viaversionplugin.features.module.ModuleInfo
+import net.minusmc.minusbounce.features.module.Module
+import net.minusmc.minusbounce.features.module.ModuleCategory
+import net.minusmc.minusbounce.features.module.ModuleInfo
 
 import net.minusmc.viaversionplugin.packets.C1APacketSwapHand
 
