@@ -22,3 +22,4 @@ ViaForge has some issue that you can't use like some anticheats flagged when you
 - [ViaVersion](https://github.com/ViaVersion/ViaVersion)
 - FlorianMichael (for [ViaMCP](https://github.com/ViaVersionMCP/ViaMCP) and transaction fix)
 - toidicakhia (Mixin code)
+- Aspw (for some fixes from https://github.com/Aspw-w/ViaForgePlus)

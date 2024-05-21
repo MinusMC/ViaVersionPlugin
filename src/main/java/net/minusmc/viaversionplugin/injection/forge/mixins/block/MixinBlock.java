@@ -1,7 +1,7 @@
 /*
- * LiquidBounce+ Hacked Client
- * A free open source mixin-based injection hacked client for Minecraft using Minecraft Forge.
- * https://github.com/WYSI-Foundation/LiquidBouncePlus/
+ * ViaVersionPlugin Hacked Client
+ * A plugin for MinusBounce that it helps you play on any version to 1.20.6.
+ * https://github.com/MinusMC/ViaVersionPlugin
  */
 package net.minusmc.viaversionplugin.injection.forge.mixins.block;
 
