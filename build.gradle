@@ -49,7 +49,7 @@ configurations {
 }
 
 dependencies {
-    compileOnly ("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+    compileOnly ("org.spongepowered:mixin:0.8.7-SNAPSHOT") {
         exclude module: "guava"
         exclude module: "commons-io"
         exclude module: "gson"
@@ -58,7 +58,7 @@ dependencies {
         exclude module: "slf4j-api"
     }
 
-    annotationProcessor("org.spongepowered:mixin:0.7.11-SNAPSHOT")
+    annotationProcessor("org.spongepowered:mixin:0.8.7-SNAPSHOT")
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     
     include "com.viaversion:viaversion:${project.viaversion_version}"
