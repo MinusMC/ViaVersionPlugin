@@ -18,6 +18,7 @@
 
 package net.minusmc.viaversionplugin.injection.forge.mixins.network;
 
+import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement;
 import net.minusmc.viaversionplugin.ViaVersionPlugin;
 import de.florianmichael.vialoadingbase.netty.event.CompressionReorderEvent;
 import io.netty.channel.Channel;
@@ -42,8 +43,18 @@ public class MixinNetworkManager {
 
     @Inject(method = "sendPacket(Lnet/minecraft/network/Packet;)V", at = @At("HEAD"), cancellable = true)
     private void send(Packet<?> packet, CallbackInfo callback) {
-        if (ViaVersionPlugin.INSTANCE.handlePacket(packet))
+        if (ViaVersionPlugin.INSTANCE.handlePacket(packet)) {
             callback.cancel();
+            return;
+        }
+
+        if (packet instanceof C08PacketPlayerBlockPlacement) {
+            C08PacketPlayerBlockPlacement wrapper = (C08PacketPlayerBlockPlacement)packet;
+
+            wrapper.facingX /= 16.0F;
+            wrapper.facingY /= 16.0F;
+            wrapper.facingZ /= 16.0F;
+        }
     }
     
 }
