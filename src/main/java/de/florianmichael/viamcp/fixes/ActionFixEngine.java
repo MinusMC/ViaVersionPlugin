@@ -37,7 +37,7 @@ public class ActionFixEngine {
                 playerBox.minX, playerBox.minY + 0.9, playerBox.minZ,
                 playerBox.minX + 0.6, playerBox.minY + 1.5, playerBox.minZ + 0.6);
 
-        return !mc.thePlayer.noClip && (isSwimmingOrCrawling && mc.thePlayer.isSprinting() && mc.thePlayer.isInWater() || isSwimmingOrCrawling && !mc.theWorld.getCollisionBoxes(crawl).isEmpty());
+        return !mc.thePlayer.noClip && isSwimmingOrCrawling && (mc.thePlayer.isSprinting() && mc.thePlayer.isInWater() || !mc.theWorld.getCollisionBoxes(crawlBox).isEmpty());
     }
 
     public static void fixAnimationEye() {
