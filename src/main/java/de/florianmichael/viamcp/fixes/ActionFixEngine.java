@@ -41,9 +41,8 @@ public class ActionFixEngine {
     }
 
     public static void fixAnimationEye() {
-        if (!ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_13)) {
+        if (!ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_13))
             return;
-        }
 
         lastEyeHeight = eyeHeight;
 
@@ -54,7 +53,7 @@ public class ActionFixEngine {
             eyeHeight = EyeHeightFixEngine.animate(1.62f, eyeHeight, 0.34f);
         }
 
-        if (eyeHeight >= 1.62 && doingEyeRot) {
+        if (eyeHeight >= 1.62f && doingEyeRot) {
             doingEyeRot = false;
         }
     }

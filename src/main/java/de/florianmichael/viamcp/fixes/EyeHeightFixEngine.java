@@ -39,7 +39,7 @@ public class EyeHeightFixEngine {
     }
 
     public static float animate(float target, float current, float pSpeed) {
-        if (target == pSpeed) {
+        if (target == current) {
             return current;
         }
 
