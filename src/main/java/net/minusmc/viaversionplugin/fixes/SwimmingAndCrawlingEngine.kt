@@ -26,7 +26,7 @@ object SwimmingAndCrawlingEngine : MinecraftInstance(), Listenable {
     var lastEyeHeight = 0f
 
     private val isPlayerUnderWater: Boolean 
-        get() = {
+        get() {
             val world = mc.thePlayer.entityWorld
             val eyeBlock = mc.thePlayer.posY + mc.thePlayer.eyeHeight - 0.25
             val blockPos = BlockPos(mc.thePlayer.posX, eyeBlock, mc.thePlayer.posZ)
@@ -34,7 +34,7 @@ object SwimmingAndCrawlingEngine : MinecraftInstance(), Listenable {
             return world.getBlockState(blockPos).block.material == Material.water && mc.thePlayer.ridingEntity !is EntityBoat
         }
 
-    private val isSwimming:
+    private val isSwimming: Boolean
         get() = !mc.thePlayer.noClip && mc.thePlayer.isInWater && mc.thePlayer.isSprinting
 
     @JvmStatic
@@ -124,7 +124,7 @@ object SwimmingAndCrawlingEngine : MinecraftInstance(), Listenable {
             (mc.thePlayer.height == sneakLength || mc.thePlayer.height == 0.6f) && mc.theWorld.getCollisionBoxes(sneak).isNotEmpty()
         ) {
             mc.gameSettings.keyBindSneak.pressed = true
-        } else if (!GameSettings.isKeyDown(mc.gameSettings.keyBindSneak) && mc.theWorld.getCollisionBoxes(sneak).isEmpty()) {
+        } else if (!GameSettings.isKeyDown(mc.gameSettings.keyBindSneak) && mc.theWorld.getCollisionBoxes(sneak).isNotEmpty()) {
             mc.gameSettings.keyBindSneak.pressed = false
         }
 
