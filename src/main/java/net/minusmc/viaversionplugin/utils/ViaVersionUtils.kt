@@ -16,6 +16,16 @@ object ViaVersionUtils {
 	}
 
 	@JvmStatic
+	fun isCurrentVersionNewerThan(version: ProtocolVersion): Boolean {
+		return ViaLoadingBase.getInstance().targetVersion.newerThan(version)
+	}
+
+	@JvmStatic
+	fun isCurrentVersionOlderThan(version: ProtocolVersion): Boolean {
+		return ViaLoadingBase.getInstance().targetVersion.olderThan(version)
+	}
+
+	@JvmStatic
 	fun isCurrentVersionInRangeFromTo(fromVersion: ProtocolVersion, toVersion: ProtocolVersion): Boolean {
 		return isCurrentVersionNewerThanOrEqualTo(fromVersion) && 
 			isCurrentVersionOlderThanOrEqualTo(toVersion)
