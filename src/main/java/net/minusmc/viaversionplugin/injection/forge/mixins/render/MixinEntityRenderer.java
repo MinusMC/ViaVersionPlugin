@@ -17,20 +17,4 @@ public class MixinEntityRenderer {
     private float height;
     @Unique
     private float previousHeight;
-
-    @Redirect(method = "orientCamera", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getEyeHeight()F"))
-    public float modifyEyeHeight(Entity entity, float partialTicks) {
-        return previousHeight + (height - previousHeight) * partialTicks;
-    }
-
-    @Inject(method = "updateRenderer", at = @At("HEAD"))
-    private void interpolateHeight(CallbackInfo ci) {
-        Entity entity = MinecraftInstance.mc.getRenderViewEntity();
-        float eyeHeight = entity.getEyeHeight();
-        previousHeight = height;
-        if (eyeHeight < height)
-            height = eyeHeight;
-        else
-            height += (eyeHeight - height) * 0.5f;
-    }
 }

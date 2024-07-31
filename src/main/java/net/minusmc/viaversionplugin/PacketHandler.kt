@@ -13,7 +13,7 @@ import com.viaversion.viabackwards.protocol.protocol1_9to1_9_1.Protocol1_9To1_9_
 import de.florianmichael.vialoadingbase.ViaLoadingBase
 
 object PacketHandler {
-	fun handlePacketSwapHand(packet: C1APacketSwapHand) {
+	fun handlePacketSwapHand(event: C1APacketSwapHand) {
 		if (ViaLoadingBase.getInstance().targetVersion.olderThan(ProtocolVersion.v1_9))
 			return
 
@@ -29,7 +29,7 @@ object PacketHandler {
 		}
 	}
 
-	fun handlePacketTeleportConfirm(packet: C1BPacketTeleportConfirm) {
+	fun handlePacketTeleportConfirm(event: C1BPacketTeleportConfirm) {
 		if (ViaLoadingBase.getInstance().targetVersion.olderThan(ProtocolVersion.v1_9))
 			return
 

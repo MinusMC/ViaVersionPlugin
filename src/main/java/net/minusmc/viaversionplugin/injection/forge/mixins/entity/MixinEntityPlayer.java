@@ -1,7 +1,5 @@
 package net.minusmc.viaversionplugin.injection.forge.mixins.entity;
 
-import net.minusmc.viaversionplugin.fixes.EyeHeightEngine;
-import net.minusmc.viaversionplugin.fixes.SwimmingAndCrawlingEngine;
 import net.minusmc.viaversionplugin.utils.ViaVersionUtils;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import net.minusmc.viaversionplugin.utils.MinecraftInstance;
@@ -27,20 +25,4 @@ public abstract class MixinEntityPlayer extends MixinEntityLivingBase {
 
     @Shadow
     public abstract boolean isPlayerSleeping();
-
-    /**
-     * @author As_pw
-     * @reason Eye Height Fix
-     */
-    @Overwrite
-    public float getEyeHeight() {
-        final Minecraft mc = MinecraftInstance.mc;
-        if (ViaVersionUtils.isCurrentVersionNewerThanOrEqualTo(ProtocolVersion.v1_13) && SwimmingAndCrawlingEngine.doingEyeRot)
-            return SwimmingAndCrawlingEngine.lastEyeHeight + (SwimmingAndCrawlingEngine.eyeHeight - SwimmingAndCrawlingEngine.lastEyeHeight) * mc.timer.renderPartialTicks;
-        
-        if (this.isPlayerSleeping())
-            return 0.2F;
-        
-        return EyeHeightEngine.lastEyeHeight + (EyeHeightEngine.eyeHeight - EyeHeightEngine.lastEyeHeight) * mc.timer.renderPartialTicks;
-    }
 }

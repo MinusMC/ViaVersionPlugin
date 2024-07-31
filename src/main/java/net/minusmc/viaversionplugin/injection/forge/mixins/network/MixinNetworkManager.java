@@ -47,14 +47,6 @@ public class MixinNetworkManager {
             callback.cancel();
             return;
         }
-
-        if (packet instanceof C08PacketPlayerBlockPlacement) {
-            C08PacketPlayerBlockPlacement wrapper = (C08PacketPlayerBlockPlacement)packet;
-
-            wrapper.facingX /= 16.0F;
-            wrapper.facingY /= 16.0F;
-            wrapper.facingZ /= 16.0F;
-        }
     }
     
 }

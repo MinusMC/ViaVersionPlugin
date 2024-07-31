@@ -15,8 +15,7 @@ object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersi
 	lateinit var viaUser: UserConnection
 
 	override fun init() {
-		MinusBounce.eventManager.registerListener(EyeHeightEngine)
-		MinusBounce.eventManager.registerListener(SwimmingAndCrawlingEngine)
+		MinusBounce.eventManager.registerListener(PacketFixes)
 	}
 
 	override fun registerModules() {

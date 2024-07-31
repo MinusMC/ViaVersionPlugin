@@ -1,8 +1,5 @@
 # ViaVersionPlugin
-A plugin for MinusBounce that it helps you play on any version to 1.20.4
-
-# Important
-ViaVersionPlugin will not support >= 1.21 due to ViaVersion dropped support Java 8 and only support Java 17.
+A plugin for MinusBounce that it helps you play on any version to 1.20.6
 
 ### Information of MinusBounce
 - Website: https://minusbounce.lol
