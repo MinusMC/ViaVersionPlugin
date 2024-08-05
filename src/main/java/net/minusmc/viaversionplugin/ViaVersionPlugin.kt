@@ -11,7 +11,7 @@ import net.minecraft.network.Packet
 
 import com.viaversion.viaversion.api.connection.UserConnection
 
-object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersion = PluginAPIVersion.VER_01) {
+object ViaVersionPlugin: Plugin("ViaVersionPlugin", version = "0.2", minApiVersion = PluginAPIVersion.VER_02) {
 	lateinit var viaUser: UserConnection
 
 	override fun init() {

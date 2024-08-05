@@ -37,12 +37,6 @@ minecraft {
     clientJvmArgs += ["-Dfml.coreMods.load=net.minusmc.viaversionplugin.injection.forge.ViaVersionTransformerLoader"]
 }
 
-sourceSets {
-    main.java.srcDirs += 'src/main/java'
-    main.java.srcDirs += '../shared/main/java'
-    main.resources.srcDirs += '../shared/main/resources'
-}
-
 configurations {
     include
     implementation.extendsFrom(include)
@@ -68,7 +62,7 @@ dependencies {
 
     include "org.slf4j:slf4j-api:${project.slf4j_version}"
 
-    compileOnly "com.github.MinusMC:MinusBounce:1.0-pre1"
+    compileOnly "com.github.toidicakhia:MinusBounce:plugin-SNAPSHOT"
 }
 
 processResources {
@@ -100,6 +94,7 @@ classes.dependsOn(moveResources)
 
 jar {
     manifest.attributes(
+        "Plugin-Class": "net.minusmc.viaversionplugin.ViaVersionPlugin",
         "MixinConfigs": "viaversionplugin.forge.mixin.json",
         "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
         "TweakOrder": 0,
