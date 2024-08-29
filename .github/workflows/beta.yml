@@ -1,5 +1,7 @@
 name: Beta build
 
+runs-on: self-hosted
+
 on:
   push:
     branches: [ main ]
