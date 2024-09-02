@@ -44,7 +44,7 @@ public class GuiProtocolSelector extends GuiScreen {
     }
 
     @Override
-    protected void actionPerformed(GuiButton guiButton) {
+    protected void actionPerformed(GuiButton guiButton) throws IOException {
         list.actionPerformed(guiButton);
 
         if (guiButton.id == 1) {
@@ -72,7 +72,6 @@ public class GuiProtocolSelector extends GuiScreen {
 
         final ProtocolInfo protocolInfo = ProtocolInfo.fromProtocolVersion(ViaLoadingBase.getInstance().getTargetVersion());
 
-        assert protocolInfo != null;
         final String versionTitle = "Version: " + ViaLoadingBase.getInstance().getTargetVersion().getName() + " - " + protocolInfo.getName();
         final String versionReleased = "Released: " + protocolInfo.getReleaseDate();
 

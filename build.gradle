@@ -54,15 +54,12 @@ dependencies {
 
     annotationProcessor("org.spongepowered:mixin:0.7.11-SNAPSHOT")
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    
-    include "com.viaversion:viaversion:${project.viaversion_version}"
-    include "com.viaversion:viabackwards:${project.viabackwards_version}"
-    include "com.viaversion:viarewind-common:${project.viarewind_version}"
-    include "org.yaml:snakeyaml:${project.snake_yml_version}"
 
+    include fileTree(dir: 'libs', include: '*.jar')
+    include "org.yaml:snakeyaml:${project.snake_yml_version}"
     include "org.slf4j:slf4j-api:${project.slf4j_version}"
 
-    compileOnly "com.github.toidicakhia:MinusBounce:plugin-SNAPSHOT"
+    compileOnly "com.github.toidicakhia:MinusBounce:70bde703b5"
 }
 
 processResources {

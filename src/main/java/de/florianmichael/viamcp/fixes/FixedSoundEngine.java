@@ -18,12 +18,14 @@
 
 package de.florianmichael.viamcp.fixes;
 
+import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
-import de.florianmichael.vialoadingbase.util.MinecraftInstance;
 import de.florianmichael.viamcp.ViaMCP;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -32,7 +34,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class FixedSoundEngine extends MinecraftInstance {
+public class FixedSoundEngine {
+    private final static Minecraft mc = Minecraft.getMinecraft();
 
     /**
      * Fix for block breaking sounds on protocols above 1.8.x
@@ -81,7 +84,7 @@ public class FixedSoundEngine extends MinecraftInstance {
         {
             return false;
         }
-        else if (worldIn.canBlockBePlaced(iblock.getBlock(), pos, false, side, null, stack))
+        else if (worldIn.canBlockBePlaced(iblock.getBlock(), pos, false, side, (Entity)null, stack))
         {
             int i = iblock.getMetadata(stack.getMetadata());
             IBlockState iblockstate1 = iblock.getBlock().onBlockPlaced(worldIn, pos, side, hitX, hitY, hitZ, i, playerIn);
@@ -103,7 +106,7 @@ public class FixedSoundEngine extends MinecraftInstance {
                 }
                 else
                 {
-                    worldIn.playSoundEffect((float)pos.getX() + 0.5F, (float)pos.getY() + 0.5F, (float)pos.getZ() + 0.5F, iblock.getBlock().stepSound.getPlaceSound(), (iblock.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, iblock.getBlock().stepSound.getFrequency() * 0.8F);
+                    worldIn.playSoundEffect((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), iblock.getBlock().stepSound.getPlaceSound(), (iblock.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, iblock.getBlock().stepSound.getFrequency() * 0.8F);
                 }
 
                 --stack.stackSize;

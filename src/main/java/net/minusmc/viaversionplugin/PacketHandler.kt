@@ -4,11 +4,11 @@ import net.minusmc.viaversionplugin.packets.*
 
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion
 import com.viaversion.viaversion.api.protocol.packet.PacketWrapper
-import com.viaversion.viaversion.api.minecraft.Position
-import com.viaversion.viaversion.api.type.Type
-import com.viaversion.viaversion.protocols.protocol1_9to1_8.ServerboundPackets1_9
-import com.viaversion.viarewind.protocol.protocol1_8to1_9.Protocol1_8To1_9
-import com.viaversion.viabackwards.protocol.protocol1_9to1_9_1.Protocol1_9To1_9_1
+import com.viaversion.viaversion.api.minecraft.BlockPosition
+import com.viaversion.viaversion.api.type.Types
+import com.viaversion.viaversion.protocols.v1_8to1_9.packet.ServerboundPackets1_9
+import com.viaversion.viarewind.protocol.v1_9to1_8.Protocol1_9To1_8
+import com.viaversion.viabackwards.protocol.v1_9_1to1_9.Protocol1_9_1To1_9
 
 import de.florianmichael.vialoadingbase.ViaLoadingBase
 
@@ -17,13 +17,13 @@ object PacketHandler {
 		if (ViaLoadingBase.getInstance().targetVersion.olderThan(ProtocolVersion.v1_9))
 			return
 
-		val swapItemPacket = PacketWrapper.create(ServerboundPackets1_9.PLAYER_DIGGING, ViaVersionPlugin.viaUser)
-		swapItemPacket.write(Type.VAR_INT, 6)
-		swapItemPacket.write(Type.POSITION1_8, Position(0, 0, 0))
-		swapItemPacket.write(Type.BYTE, 0.toByte())
+		val swapItemPacket = PacketWrapper.create(ServerboundPackets1_9.PLAYER_ACTION, ViaVersionPlugin.viaUser)
+		swapItemPacket.write(Types.VAR_INT, 6)
+		swapItemPacket.write(Types.BLOCK_POSITION1_8, BlockPosition(0, 0, 0))
+		swapItemPacket.write(Types.BYTE, 0.toByte())
 
 		try {
-			swapItemPacket.sendToServer(Protocol1_8To1_9::class.java)
+			swapItemPacket.sendToServer(Protocol1_9To1_8::class.java)
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}
@@ -33,11 +33,11 @@ object PacketHandler {
 		if (ViaLoadingBase.getInstance().targetVersion.olderThan(ProtocolVersion.v1_9))
 			return
 
-		val teleportConfirm = PacketWrapper.create(ServerboundPackets1_9.TELEPORT_CONFIRM, ViaVersionPlugin.viaUser)
-        teleportConfirm.write(Type.VAR_INT, 1)
+		val teleportConfirm = PacketWrapper.create(ServerboundPackets1_9.ACCEPT_TELEPORTATION, ViaVersionPlugin.viaUser)
+        teleportConfirm.write(Types.VAR_INT, 1)
 
         try {
-			teleportConfirm.sendToServer(Protocol1_9To1_9_1::class.java, true)
+			teleportConfirm.sendToServer(Protocol1_9_1To1_9::class.java, true)
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}
